@@ -15,6 +15,18 @@ let playing = false;
 
 
 document.querySelector('.reset').addEventListener('click', reset);
+document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener('click', itemClick);
+});
+
+function itemClick(event) {
+ let item = event.target.getAttribute('data-item');
+ if(frame[item] === '') {
+   frame[item] = turn;
+   renderFrame();
+   togglePlayer();
+ }
+}
 
 function reset () {
   warning = '';
@@ -44,4 +56,9 @@ function renderFrame() {
 function renderInfo() {
   document.querySelector('.vez').innerHTML = turn;
   document.querySelector('.resultado').innerHTML = warning;
+}
+
+function togglePlayer() {
+turn = (turn === 'x') ? 'o' : 'x';
+renderInfo();
 }
