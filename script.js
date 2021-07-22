@@ -9,6 +9,16 @@ let frame = {
   
 }
 
-let turn = {
-  
+let turn = "";
+let warning = '';
+let playing = false;
+
+
+document.querySelector('.reset').addEventListener('click', reset);
+
+function reset () {
+  warning = '';
+
+  let random = Math.floor(Math.random() * 2);
+ player = (random === 0) ? 'x' : 'o';
 }
