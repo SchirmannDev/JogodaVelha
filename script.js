@@ -21,4 +21,24 @@ function reset () {
 
   let random = Math.floor(Math.random() * 2);
  player = (random === 0) ? 'x' : 'o';
+
+ for(let i in frame) {
+   frame[i] = '';
+ }
+
+ playing = true;
+
+ renderFrame();
+ renderInfo();
+
+}
+
+function renderFrame() {
+ for(let i in frame) {
+   let item = document.querySelector(`div[data-item=${i}]`)
+ }
+}
+
+function renderInfo() {
+
 }
