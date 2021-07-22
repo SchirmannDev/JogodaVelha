@@ -20,7 +20,7 @@ function reset () {
   warning = '';
 
   let random = Math.floor(Math.random() * 2);
- player = (random === 0) ? 'x' : 'o';
+ turn = (random === 0) ? 'x' : 'o';
 
  for(let i in frame) {
    frame[i] = '';
@@ -35,10 +35,13 @@ function reset () {
 
 function renderFrame() {
  for(let i in frame) {
-   let item = document.querySelector(`div[data-item=${i}]`)
+   let item = document.querySelector(`div[data-item=${i}]`);
+   
+     item.innerHTML = frame[i];
+   } 
  }
-}
 
 function renderInfo() {
-
+  document.querySelector('.vez').innerHTML = turn;
+  document.querySelector('.resultado').innerHTML = warning;
 }
