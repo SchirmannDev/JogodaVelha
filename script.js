@@ -21,7 +21,7 @@ document.querySelectorAll('.item').forEach(item => {
 
 function itemClick(event) {
  let item = event.target.getAttribute('data-item');
- if(frame[item] === '') {
+ if(playing && frame[item] === '') {
    frame[item] = turn;
    renderFrame();
    togglePlayer();
@@ -76,3 +76,39 @@ function checkGame() {
   
   }
 } 
+
+function checkWinnerFor(turn) {
+
+  let pos = [ 'a1,a2,a3',
+                'b1,b2,b3',
+                'c1,c2,c3',
+
+                'a1,b1,c1',
+                'a2,b2,c2',
+                'a3,b3,c3',
+
+                'a1,b2,c3',
+                'a3,b2,c1'
+              ];
+
+              for(let w in pos){
+                let pArray = pos[w].split(',');
+                let hasWon =  pArray.every( option=> frame[option] === turn );
+                if(hasWon) {
+                  return true;
+                }
+
+}
+return false;
+
+}
+
+function isFull(){
+
+  for(let i in frame) {
+    if(frame[i] === '') {
+      return false;
+    }
+  }
+  return true;
+}
