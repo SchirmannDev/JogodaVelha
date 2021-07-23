@@ -48,9 +48,9 @@ function reset () {
 function renderFrame() {
  for(let i in frame) {
    let item = document.querySelector(`div[data-item=${i}]`);
-   
      item.innerHTML = frame[i];
    } 
+   checkGame();
  }
 
 function renderInfo() {
@@ -62,3 +62,17 @@ function togglePlayer() {
 turn = (turn === 'x') ? 'o' : 'x';
 renderInfo();
 }
+
+function checkGame() {
+  if(checkWinnerFor('x')) {
+    warning = 'O "x" Venceu!';
+    playing= false;
+  } else if (checkWinnerFor('o')) { 
+    warning = 'O "o" Venceu ';
+    playing = false;
+  }else if(isFull()) {
+    warning = 'DEU EMPATE';
+    playing = false;
+  
+  }
+} 
