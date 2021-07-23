@@ -73,6 +73,7 @@ function checkGame() {
   }else if(isFull()) {
     warning = 'DEU EMPATE';
     playing = false;
+    alert('VOCE EMPATOU ANTA');
   
   }
 } 
@@ -111,4 +112,6 @@ function isFull(){
     }
   }
   return true;
+
+
 }
